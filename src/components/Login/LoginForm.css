@@ -1,0 +1,78 @@
+.login-form {
+    box-sizing: border-box;
+    max-width: 617px;
+    background: #ffffff;
+    border: 1px solid #e6eaf2;
+    border-radius: 5px;
+    padding:28px 30px 30px 30px ;
+}
+.login-form-title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+}
+.login-form-subtitle{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    padding: 5px 0 19px 0 ;
+}
+.login-form-inputs-span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom:1px;
+}
+.login-form-inputs-right{
+    margin:5px 0 25px 0;
+}
+.login-form-inputs-right a{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #515D74;
+    text-decoration: none;
+}
+.login-form-inputs-right a:hover{
+    text-decoration: underline;
+}
+.login-form-inputs .email-login{
+    margin-bottom:15px;
+}
+.login-submit{
+    cursor:pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 24px;
+    gap: 24px;
+
+    width: 551px;
+    height: 80px;
+    left: 444px;
+    top: 663px;
+    border:none;
+    background: var(--primary-color);
+    border-radius: 5px;
+
+    /* Botão CTA ativo */
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

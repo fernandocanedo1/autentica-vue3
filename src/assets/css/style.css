@@ -1,6 +1,15 @@
+:root{
+    --primary-color:#F30168;
+}
 *{
     font-family: 'Sora';
     color: #292D32;
+}
+body{
+    /* position: relative; */
+    background: #FAFAFC;
+    margin: 0px;
+    padding: 0px;
 }
 .flex {
     display: flex;
@@ -49,4 +58,10 @@ input {
     flex: none;
     order: 0;
     flex-grow: 0;
+}
+input::placeholder{
+    /* color: #292D32; */
+}
+button:hover {
+    opacity: 0.9;
 }
