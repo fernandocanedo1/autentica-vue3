@@ -1,0 +1,52 @@
+*{
+    font-family: 'Sora';
+    color: #292D32;
+}
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+
+input {
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    padding: 30px 16px;
+    gap: 10px;
+    width: 551px;
+    height: 80px;
+    background: #FFFFFF;
+    border: 1px solid rgba(81, 93, 116, 0.5);
+    border-radius: 5px;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #292D32;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

@@ -7,7 +7,7 @@
 </template>
 
 <style>
-*{
+body{
   position: relative;
   background: #FAFAFC
 }
