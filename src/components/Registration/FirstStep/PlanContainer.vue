@@ -102,7 +102,7 @@ export default {
           rate: this.rate,
           ideal: this.ideal,
           serverCountry: this.serverCountry,
-          listServer: this.serverCountry,
+          listServer: this.listServer,
           appsList: this.appsList,
           migration: this.migration,
           othersList: this.othersList,
@@ -190,7 +190,8 @@ export default {
 }
 
 .r-plan-submit {
-  margin: 5px auto;
+  margin: auto;
+  margin-bottom: 15px;
 }
 
 .r-plan-list-title {

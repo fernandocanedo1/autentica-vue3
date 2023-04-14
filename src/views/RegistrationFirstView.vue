@@ -1,10 +1,5 @@
 <template>
   <section class="r-first">
-    <img
-      alt="Locaweb logo"
-      src="../assets/locaweb1.png"
-      class="registration-logo"
-    />
     <section class="r-first-head flex-column center">
       <RegistrationHead
         :title="'Você está muito próximo de mudar a forma de'"
@@ -81,7 +76,7 @@
       </PlanContainer>
 
       <PlanContainer
-        :title="'Hospedagem 2'"
+        :title="'Hospedagem 3'"
         :price="'999'"
         :paid="'cobrado mensalmente'"
         :rate="'sem taxa de setup'"

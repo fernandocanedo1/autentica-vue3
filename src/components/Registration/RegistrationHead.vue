@@ -1,12 +1,17 @@
 <template>
+  <img
+    alt="Locaweb logo"
+    src="../../assets/locaweb1.png"
+    class="registration-logo"
+  />
   <div class="r-title">
     <span>
       {{ title }}
       <br />
-      <a :href=titleLink>{{ titleLinkSpan }}</a>
+      <a :href="titleLink">{{ titleLinkSpan }}</a>
     </span>
   </div>
-  <div class="r-subtitle">
+  <div class="r-subtitle" v-if="subtitle">
     <span>{{ subtitle }}</span>
   </div>
 </template>
@@ -18,9 +23,9 @@ export default {
     title: String,
     titleLinkSpan: String,
     titleLink: String,
-    subtitle: String
-  }
-}
+    subtitle: String,
+  },
+};
 </script>
 <style>
 .r-title {
@@ -29,11 +34,11 @@ export default {
   font-size: 28px;
   line-height: 35px;
   text-align: center;
-  color: #292D32;
+  color: #292d32;
   padding-bottom: 22px;
 }
 
 .r-title a {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 </style>
