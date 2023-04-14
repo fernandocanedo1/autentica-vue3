@@ -1,6 +1,7 @@
 <template>
+
   <div class="r-plan">
-    <slot name="teste" v-if="mostUsed"></slot>
+    <slot name="teste" v-if="mostUsed || planoEscolhido"></slot>
     <section class="r-plan-session-one">
       <div class="r-plan-title">{{ title }}</div>
       <div class="r-plan-prices">
@@ -22,7 +23,7 @@
       </div>
       <hr class="divider" />
       <form @submit.prevent="handleSubmit">
-        <button class="r-plan-submit" type="submit">Escolher esse plano</button>
+        <button class="r-plan-submit" type="submit" v-if="!noButton">Escolher esse plano</button>
       </form>
     </section>
     <section class="r-plan-session-two">
@@ -79,7 +80,9 @@
 <script>
 export default {
   props: {
+    planoEscolhido: Boolean,
     mostUsed: Boolean,
+    noButton: Boolean,
     title: String,
     price: String,
     paid: String,
@@ -95,7 +98,6 @@ export default {
     return {
       data: [
         {
-          mostUsed: this.mostUsed,
           title: this.title,
           price: this.price,
           paid: this.paid,
@@ -125,8 +127,6 @@ export default {
   padding: 40px 43px 40px 43px;
   margin-top: 35px;
   width: 268px;
-  left: 202px;
-  top: 286px;
   background: #ffffff;
   border-radius: 5px;
   margin-right: 12.5px;
