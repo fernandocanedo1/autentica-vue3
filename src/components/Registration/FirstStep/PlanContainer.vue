@@ -1,37 +1,114 @@
 <template>
   <div class="r-plan">
-    <div class="r-plan-session-one">
-      <div class="r-plan-title">Hospedagem 1</div>
+    <span class="most-used" v-if="mostUsed">Mais usado</span>
+    <section class="r-plan-session-one">
+      <div class="r-plan-title">{{ title }}</div>
       <div class="r-plan-prices">
         <div class="r-plan-prices-price">
-          <span>Gratis</span>
+          <span class="real" v-if="price!=='Gratis'">R$</span>
+          <span class="price">{{ price }}</span>
+          <span class="real" v-if="price!=='Gratis'">/mês</span>
         </div>
         <div class="r-plan-prices-paid">
-          <span>você não paga nada para usar</span>
+          <span>{{ paid }}</span>
+        </div>
+        <div class="r-plan-prices-rate">
+          <span>{{ rate }}</span>
         </div>
       </div>
-    </div>
+      <hr class="divider" />
+      <div class="r-plan-ideal">
+        <span>{{ ideal }}</span>
+      </div>
+      <hr class="divider" />
+      <button class="r-plan-submit" type="submit">Escolher esse plano</button>
+    </section>
+    <section class="r-plan-session-two">
+      <div class="r-plan-list-title">
+        <span>Seu site em servidores
+          <span class="text-line">no {{ serverCountry }}.</span>
+        </span>
+      </div>
+      <div class="r-plan-list-items">
+        <ul>
+          <li v-for="item in listServer" :key="item">
+            <span v-html=item></span>
+          </li>
+        </ul>
+      </div>
+      <div class="r-plan-list-title">
+        <span>Suporte 24 horas, 7 dias por semana grátis;</span>
+      </div>
+      <div class="r-plan-list-title">
+        <span>Aplicativos disponíveis;</span>
+      </div>
+      <div class="r-plan-list-items">
+        <ul>
+          <li v-for="item in appsList" :key="item">
+            <span v-html=item></span>
+          </li>
+        </ul>
+      </div>
+      <div class="r-plan-list-title" v-if="migration">
+        <span>Migração Gratuita;</span>
+      </div>
+      <div class="r-plan-list-items" v-if="migration">
+        <ul>
+          <li v-for="item in migration" :key="item">
+            <span v-html=item></span>
+          </li>
+        </ul>
+      </div>
+      <div class="r-plan-list-title">
+        <span>Você ainda tem</span>
+      </div>
+      <div class="r-plan-list-items">
+        <ul>
+          <li v-for="item in othersList" :key="item">
+            <span v-html=item></span>
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    mostUsed: Boolean,
+    title: String,
+    price: String,
+    paid: String,
+    rate: String,
+    ideal: String,
+    serverCountry: String,
+    listServer: Array,
+    appsList: Array,
+    migration: Array,
+    othersList: Array,
+  },
+};
 </script>
 
 <style>
 .r-plan {
   padding: 40px 43px 40px 43px;
   margin-top: 35px;
-  width: 348px;
-  height: 1262px;
+  width: 268px;
   left: 202px;
   top: 286px;
   background: #ffffff;
   border-radius: 5px;
+  margin-right: 12.5px;
+  margin-left: 12.5px;
+  margin-bottom: 66px;
+  height: 100%
 }
 .r-plan-session-one {
   text-align: center;
 }
+
 .r-plan-title {
   padding-bottom: 21px;
   font-style: normal;
@@ -42,14 +119,89 @@ export default {};
 
   color: #666666;
 }
-.r-plan-prices-prices {
+.real{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: var(--primary-color);
+}
+.r-plan-prices-price {
   padding-bottom: 13px;
 }
-.r-plan-prices-price span {
+
+.r-plan-prices-price .price {
   font-style: normal;
   font-weight: 700;
   font-size: 34px;
   line-height: 43px;
   color: var(--primary-color);
+}
+
+.r-plan-prices-paid {
+  padding-bottom: 10px;
+}
+
+.r-plan-ideal span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #666666;
+}
+
+.r-plan-submit {
+  margin: 5px auto;
+}
+
+.r-plan-list-title {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.r-plan-list-title span {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+
+  color: #666666;
+}
+
+.verificado-icon {
+  width: 12px;
+}
+
+.r-plan-list-items img {
+  padding-right: 11px;
+}
+
+.r-plan-list-items {
+  display: flex;
+}
+
+.r-plan-list-items span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: #666666;
+}
+.most-used{
+  position:relative;
+  left: 70px;
+  top: -50px;
+  padding:8px 20px 7px 20px ;
+  text-transform: uppercase;
+  background: #10C300;
+  color:white;
+  border-radius: 10px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
 </style>

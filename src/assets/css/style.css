@@ -1,11 +1,13 @@
-:root{
-    --primary-color:#F30168;
+:root {
+    --primary-color: #F30168;
 }
-*{
+
+* {
     font-family: 'Sora';
     color: #292D32;
 }
-body{
+
+body {
     /* position: relative; */
     background: #FAFAFC;
     margin: 0px;
@@ -14,9 +16,10 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    height: 100vh;
+    align-items: center;
+    /* height: 100vh; */
 }
+
 .flex {
     display: flex;
 }
@@ -34,8 +37,28 @@ body{
 .left {
     text-align: left;
 }
-.right{
+
+.right {
     text-align: right;
+}
+
+.text-line {
+    border-bottom: 1px solid #666666;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    background-image: url('@/assets/tick-square.svg');
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    background-position: left 4px ;
+    background-size: 12px;
+    padding-bottom:10px ;
 }
 
 input {
@@ -65,9 +88,41 @@ input {
     order: 0;
     flex-grow: 0;
 }
-input::placeholder{
+
+input::placeholder {
     /* color: #292D32; */
 }
+
+button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px 18px 24px;
+    gap: 24px;
+
+
+
+    border: none;
+    background: var(--primary-color);
+    border-radius: 5px;
+
+    /* Botão CTA ativo */
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
 button:hover {
     opacity: 0.9;
+}
+
+.divider {
+    border: 1px solid rgba(196, 196, 196, 0.5);
+    margin: 20px 0 20px 0
 }
