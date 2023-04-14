@@ -1,7 +1,11 @@
 :root {
     --primary-color: #F30168;
 }
-
+@font-face {
+    font-family: 'Sora';
+    src: url('../fonts/Sora-VariableFont_wght.ttf') format('truetype');
+}
+  
 * {
     font-family: 'Sora';
     color: #292D32;

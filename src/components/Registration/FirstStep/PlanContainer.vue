@@ -170,8 +170,15 @@ export default {
 .r-plan-prices-paid {
   padding-bottom: 10px;
 }
-.r-plan-ideal {
-  margin: 0 33px 0 33px;
+.r-plan-prices-rate span, .r-plan-prices-paid span{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  /* identical to box height */
+  text-align: center;
+  color: #666666;
 }
 .r-plan-ideal span {
   font-style: normal;

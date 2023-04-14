@@ -52,7 +52,7 @@
         :price="'499'"
         :paid="'cobrado mensalmente'"
         :rate="'sem taxa de setup'"
-        :ideal="'Ideal para site com mais mais de 30k de visitas.'"
+        :ideal="'Ideal para site com mais de 30k de visitas.'"
         :serverCountry="'Brasil'"
         :listServer="[
           'Servidores em nosso de São Paulo;',
@@ -85,7 +85,7 @@
         :price="'999'"
         :paid="'cobrado mensalmente'"
         :rate="'sem taxa de setup'"
-        :ideal="'Ideal para site com mais mais de 60k de visitas.'"
+        :ideal="'Ideal para site com mais de 60k de visitas.'"
         :serverCountry="'Brasil'"
         :listServer="[
           'Servidores em nosso de São Paulo;',
