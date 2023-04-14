@@ -1,6 +1,6 @@
 <template>
   <div class="r-plan">
-    <span class="most-used" v-if="mostUsed">Mais usado</span>
+    <slot  name="teste" v-if="mostUsed"></slot>
     <section class="r-plan-session-one">
       <div class="r-plan-title">{{ title }}</div>
       <div class="r-plan-prices">
@@ -141,14 +141,15 @@ export default {
 .r-plan-prices-paid {
   padding-bottom: 10px;
 }
-
+.r-plan-ideal{
+  margin: 0 33px 0 33px;
+}
 .r-plan-ideal span {
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
   line-height: 21px;
   text-align: center;
-
   color: #666666;
 }
 
@@ -157,7 +158,7 @@ export default {
 }
 
 .r-plan-list-title {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -189,19 +190,5 @@ export default {
   font-size: 17px;
   line-height: 21px;
   color: #666666;
-}
-.most-used{
-  position:relative;
-  left: 70px;
-  top: -50px;
-  padding:8px 20px 7px 20px ;
-  text-transform: uppercase;
-  background: #10C300;
-  color:white;
-  border-radius: 10px;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
 }
 </style>
