@@ -8,7 +8,7 @@
     <LoginForm />
     <div class="login-bottom">
         <span>Ainda não tem conta? 
-            <a href="#">Cadastre-se</a>
+            <a @click="handleSubmit">Cadastre-se</a>
         </span>
     </div>
   </div>
@@ -18,7 +18,12 @@
 import LoginForm from '@/components/Login/LoginForm.vue'
 export default {
   components: { LoginForm },
-    name: 'LoginView'
+    name: 'LoginView',
+  methods:{
+    handleSubmit(){
+      this.$router.push('/plano');
+    }
+  }
 }
 </script>
     
@@ -45,6 +50,8 @@ export default {
         line-height: 23px;
     }
     .login-bottom a{
-        color:var(--primary-color)
+        color:var(--primary-color);
+        text-decoration: underline;
+        cursor:pointer;
     }
 </style>

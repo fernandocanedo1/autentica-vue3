@@ -114,6 +114,7 @@ export default {
     handleSubmit(){
       this.$store.dispatch('submitData', this.data);
       console.log("funcionou")
+      this.$router.push('/cadastro');
     }
   }
 };
