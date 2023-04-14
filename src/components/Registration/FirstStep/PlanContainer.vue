@@ -1,13 +1,13 @@
 <template>
   <div class="r-plan">
-    <slot  name="teste" v-if="mostUsed"></slot>
+    <slot name="teste" v-if="mostUsed"></slot>
     <section class="r-plan-session-one">
       <div class="r-plan-title">{{ title }}</div>
       <div class="r-plan-prices">
         <div class="r-plan-prices-price">
-          <span class="real" v-if="price!=='Gratis'">R$</span>
+          <span class="real" v-if="price !== 'Gratis'">R$</span>
           <span class="price">{{ price }}</span>
-          <span class="real" v-if="price!=='Gratis'">/mês</span>
+          <span class="real" v-if="price !== 'Gratis'">/mês</span>
         </div>
         <div class="r-plan-prices-paid">
           <span>{{ paid }}</span>
@@ -21,18 +21,21 @@
         <span>{{ ideal }}</span>
       </div>
       <hr class="divider" />
-      <button class="r-plan-submit" type="submit">Escolher esse plano</button>
+      <form @submit.prevent="handleSubmit">
+        <button class="r-plan-submit" type="submit">Escolher esse plano</button>
+      </form>
     </section>
     <section class="r-plan-session-two">
       <div class="r-plan-list-title">
-        <span>Seu site em servidores
+        <span
+          >Seu site em servidores
           <span class="text-line">no {{ serverCountry }}.</span>
         </span>
       </div>
       <div class="r-plan-list-items">
         <ul>
           <li v-for="item in listServer" :key="item">
-            <span v-html=item></span>
+            <span v-html="item"></span>
           </li>
         </ul>
       </div>
@@ -45,7 +48,7 @@
       <div class="r-plan-list-items">
         <ul>
           <li v-for="item in appsList" :key="item">
-            <span v-html=item></span>
+            <span v-html="item"></span>
           </li>
         </ul>
       </div>
@@ -55,7 +58,7 @@
       <div class="r-plan-list-items" v-if="migration">
         <ul>
           <li v-for="item in migration" :key="item">
-            <span v-html=item></span>
+            <span v-html="item"></span>
           </li>
         </ul>
       </div>
@@ -65,7 +68,7 @@
       <div class="r-plan-list-items">
         <ul>
           <li v-for="item in othersList" :key="item">
-            <span v-html=item></span>
+            <span v-html="item"></span>
           </li>
         </ul>
       </div>
@@ -88,6 +91,31 @@ export default {
     migration: Array,
     othersList: Array,
   },
+  data() {
+    return {
+      data: [
+        {
+          mostUsed: this.mostUsed,
+          title: this.title,
+          price: this.price,
+          paid: this.paid,
+          rate: this.rate,
+          ideal: this.ideal,
+          serverCountry: this.serverCountry,
+          listServer: this.serverCountry,
+          appsList: this.appsList,
+          migration: this.migration,
+          othersList: this.othersList,
+        },
+      ],
+    };
+  },
+  methods:{
+    handleSubmit(){
+      this.$store.dispatch('submitData', this.data);
+      console.log("funcionou")
+    }
+  }
 };
 </script>
 
@@ -103,7 +131,7 @@ export default {
   margin-right: 12.5px;
   margin-left: 12.5px;
   margin-bottom: 66px;
-  height: 100%
+  height: 100%;
 }
 .r-plan-session-one {
   text-align: center;
@@ -119,7 +147,7 @@ export default {
 
   color: #666666;
 }
-.real{
+.real {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -141,7 +169,7 @@ export default {
 .r-plan-prices-paid {
   padding-bottom: 10px;
 }
-.r-plan-ideal{
+.r-plan-ideal {
   margin: 0 33px 0 33px;
 }
 .r-plan-ideal span {
@@ -163,7 +191,7 @@ export default {
 }
 
 .r-plan-list-title span {
-  font-family: 'Sora';
+  font-family: "Sora";
   font-style: normal;
   font-weight: 700;
   font-size: 17px;
