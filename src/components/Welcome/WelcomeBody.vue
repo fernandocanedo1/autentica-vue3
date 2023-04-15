@@ -9,7 +9,7 @@
         <img src="../../assets/welcome.png">
     </div>
     <div class="welcome-question">
-        <span>Caso tenha alguma dúvida, visite nossa central de ajuda.</span>
+        <span>Caso tenha alguma dúvida, <span class="text-line">visite nossa central de ajuda</span>.</span>
     </div>
 </template>
 
@@ -28,6 +28,7 @@ export default {
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
+    padding-bottom: 15px;
 }
 
 .welcome-text {
@@ -35,13 +36,17 @@ export default {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    padding-bottom: 32px;
 }
-
+.welcome-image{
+    padding-bottom: 38px;
+}
 .welcome-question {
     font-family: 'Sora';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    padding-bottom: 49px;
 }
 </style>
