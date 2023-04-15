@@ -116,10 +116,22 @@ import RegistrationHead from "@/components/Registration/RegistrationHead.vue";
 import PlanContainer from "@/components/Registration/FirstStep/PlanContainer.vue";
 export default {
   components: { RegistrationHead, PlanContainer },
+  mounted() {
+    const planContainer = document.querySelector('.r-plan');
+    planContainer.style.height = 'auto !important';
+  },
+  updated() {
+    const planContainer = document.querySelector('.r-plan');
+    planContainer.style.height = 'auto !important';
+  },
 };
 </script>
 
 <style>
+.r-plan {
+  height: auto  ;
+  overflow: hidden;
+}
 .r-first {
   display: flex;
   flex-direction: column;
@@ -138,8 +150,8 @@ export default {
 
 .most-used{
   position:absolute;
-  left: 70px;
-  top: -50px;
+  left: 120px;
+  top: 20px;
   padding:8px 20px 7px 20px ;
   text-transform: uppercase;
   background: #10C300;

@@ -1,26 +1,12 @@
 <template>
   <section class="r-first">
-    <RegistrationHead
-      :title="'Você está muito próximo de mudar a forma de'"
-      :titleLinkSpan="'hospedar seu site'"
-      :titleLink="'#'"
-    />
+    <RegistrationHead :title="'Você está muito próximo de mudar a forma de'" :titleLinkSpan="'hospedar seu site'"
+      :titleLink="'#'" />
     <div class="container flex">
       <RegistrationForm />
-      <PlanContainer
-        planoEscolhido
-        noButton
-        :title="data.title"
-        :price="data.price"
-        :paid="data.paid"
-        :rate="data.rate"
-        :ideal="data.ideal"
-        :serverCountry="data.serverCountry"
-        :listServer="data.listServer"
-        :appsList="data.appsList"
-        :migration="data.migration"
-        :othersList="data.othersList"
-      >
+      <PlanContainer planoEscolhido noButton :title="data.title" :price="data.price" :paid="data.paid" :rate="data.rate"
+        :ideal="data.ideal" :serverCountry="data.serverCountry" :listServer="data.listServer" :appsList="data.appsList"
+        :migration="data.migration" :othersList="data.othersList">
         <template v-slot:teste>
           <div class="most-used-father">
             <div class="plano-escolhido">Plano escolhido</div>
@@ -49,27 +35,27 @@ export default {
     return { data };
   },
   mounted() {
-    console.log(this.data);
+    const planContainer = document.querySelector('.r-plan');
+    planContainer.style.height = '983px';
   },
 };
 </script>
 
-<style scoped>
+<style>
 .r-plan {
-  position: relative;
-  height: 983px;
+  height: 983px ;
   overflow: hidden;
 }
+
 /* .most-used-father {
   position: absolute;
   left: 40px;
   top: 50px;
 } */
-
 .plano-escolhido {
   position: absolute;
-  left: 40px;
-  top: -50px;
+  left: 100px;
+  top: 20px;
   padding: 8px 20px 7px 20px;
   text-transform: uppercase;
   background: #000000;
@@ -78,6 +64,10 @@ export default {
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  z-index: 999; /* valor alto para exibir acima do overflow:hidden */
+  z-index: 999;
+  /* valor alto para exibir acima do overflow:hidden */
+}
+.container-plan{
+  position: relative;
 }
 </style>

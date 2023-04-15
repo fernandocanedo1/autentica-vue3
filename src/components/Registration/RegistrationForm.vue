@@ -45,11 +45,11 @@
       <label class="container-checkbox">
         Ao concluir com seu cadastro você concorda com nossos <span class=text-line>termos de uso</span> e <span class=text-line>politicas de privacidade</span>.
 
-        <input type="checkbox" checked="checked">
+        <input type="checkbox" >
         <span class="checkmark"></span>
       </label>
       <button class="login-submit" type="submit">Fazer login</button>
-    </section>
+      </section>
   </div>
 </template>
 
@@ -60,8 +60,8 @@ export default {};
 <style>
 .r-form {
   width: 617px;
-  height: 1036px;
   margin-top: 35px;
+  height: 100%;
   padding-bottom:27px;
   background: #FFFFFF;
   border: 1px solid #E6EAF2;

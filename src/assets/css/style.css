@@ -153,15 +153,12 @@ a:hover {
     -ms-user-select: none;
     user-select: none;
 
-
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
 
     color: #292D32;
-
-
 }
 
 /* Hide the browser's default checkbox */

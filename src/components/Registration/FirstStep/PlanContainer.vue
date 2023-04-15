@@ -1,79 +1,80 @@
 <template>
-
-  <div class="r-plan">
+  <div class="container-plan">
     <slot name="teste" v-if="mostUsed || planoEscolhido"></slot>
-    <section class="r-plan-session-one">
-      <div class="r-plan-title">{{ title }}</div>
-      <div class="r-plan-prices">
-        <div class="r-plan-prices-price">
-          <span class="real" v-if="price !== 'Gratis'">R$</span>
-          <span class="price">{{ price }}</span>
-          <span class="real" v-if="price !== 'Gratis'">/mês</span>
+    <div class="r-plan">
+
+      <section class="r-plan-session-one">
+        <div class="r-plan-title">{{ title }}</div>
+        <div class="r-plan-prices">
+          <div class="r-plan-prices-price">
+            <span class="real" v-if="price !== 'Gratis'">R$</span>
+            <span class="price">{{ price }}</span>
+            <span class="real" v-if="price !== 'Gratis'">/mês</span>
+          </div>
+          <div class="r-plan-prices-paid">
+            <span>{{ paid }}</span>
+          </div>
+          <div class="r-plan-prices-rate">
+            <span>{{ rate }}</span>
+          </div>
         </div>
-        <div class="r-plan-prices-paid">
-          <span>{{ paid }}</span>
+        <hr class="divider" />
+        <div class="r-plan-ideal">
+          <span>{{ ideal }}</span>
         </div>
-        <div class="r-plan-prices-rate">
-          <span>{{ rate }}</span>
+        <hr class="divider" />
+        <form @submit.prevent="handleSubmit">
+          <button class="r-plan-submit" type="submit" v-if="!noButton">Escolher esse plano</button>
+        </form>
+      </section>
+      <section class="r-plan-session-two">
+        <div class="r-plan-list-title">
+          <span>Seu site em servidores
+            <span class="text-line">no {{ serverCountry }}.</span>
+          </span>
         </div>
-      </div>
-      <hr class="divider" />
-      <div class="r-plan-ideal">
-        <span>{{ ideal }}</span>
-      </div>
-      <hr class="divider" />
-      <form @submit.prevent="handleSubmit">
-        <button class="r-plan-submit" type="submit" v-if="!noButton">Escolher esse plano</button>
-      </form>
-    </section>
-    <section class="r-plan-session-two">
-      <div class="r-plan-list-title">
-        <span
-          >Seu site em servidores
-          <span class="text-line">no {{ serverCountry }}.</span>
-        </span>
-      </div>
-      <div class="r-plan-list-items">
-        <ul>
-          <li v-for="item in listServer" :key="item">
-            <span v-html="item"></span>
-          </li>
-        </ul>
-      </div>
-      <div class="r-plan-list-title">
-        <span>Suporte 24 horas, 7 dias por semana grátis;</span>
-      </div>
-      <div class="r-plan-list-title">
-        <span>Aplicativos disponíveis;</span>
-      </div>
-      <div class="r-plan-list-items">
-        <ul>
-          <li v-for="item in appsList" :key="item">
-            <span v-html="item"></span>
-          </li>
-        </ul>
-      </div>
-      <div class="r-plan-list-title" v-if="migration">
-        <span>Migração Gratuita;</span>
-      </div>
-      <div class="r-plan-list-items" v-if="migration">
-        <ul>
-          <li v-for="item in migration" :key="item">
-            <span v-html="item"></span>
-          </li>
-        </ul>
-      </div>
-      <div class="r-plan-list-title">
-        <span>Você ainda tem</span>
-      </div>
-      <div class="r-plan-list-items">
-        <ul>
-          <li v-for="item in othersList" :key="item">
-            <span v-html="item"></span>
-          </li>
-        </ul>
-      </div>
-    </section>
+        <div class="r-plan-list-items">
+          <ul>
+            <li v-for="item in listServer" :key="item">
+              <span v-html="item"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="r-plan-list-title">
+          <span>Suporte 24 horas, 7 dias por semana grátis;</span>
+        </div>
+        <div class="r-plan-list-title">
+          <span>Aplicativos disponíveis;</span>
+        </div>
+        <div class="r-plan-list-items">
+          <ul>
+            <li v-for="item in appsList" :key="item">
+              <span v-html="item"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="r-plan-list-title" v-if="migration">
+          <span>Migração Gratuita;</span>
+        </div>
+        <div class="r-plan-list-items" v-if="migration">
+          <ul>
+            <li v-for="item in migration" :key="item">
+              <span v-html="item"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="r-plan-list-title">
+          <span>Você ainda tem</span>
+        </div>
+        <div class="r-plan-list-items">
+          <ul>
+            <li v-for="item in othersList" :key="item">
+              <span v-html="item"></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -112,11 +113,12 @@ export default {
       ],
     };
   },
-  methods:{
-    handleSubmit(){
+  methods: {
+    handleSubmit() {
       this.$store.dispatch('submitData', this.data);
       console.log("funcionou")
       this.$router.push('/cadastro');
+      window.scrollTo(0, 0)
     }
   }
 };
@@ -132,8 +134,8 @@ export default {
   margin-right: 12.5px;
   margin-left: 12.5px;
   margin-bottom: 66px;
-  height: 100%;
 }
+
 .r-plan-session-one {
   text-align: center;
 }
@@ -148,6 +150,7 @@ export default {
 
   color: #666666;
 }
+
 .real {
   font-style: normal;
   font-weight: 400;
@@ -155,6 +158,7 @@ export default {
   line-height: 25px;
   color: var(--primary-color);
 }
+
 .r-plan-prices-price {
   padding-bottom: 13px;
 }
@@ -170,7 +174,9 @@ export default {
 .r-plan-prices-paid {
   padding-bottom: 10px;
 }
-.r-plan-prices-rate span, .r-plan-prices-paid span{
+
+.r-plan-prices-rate span,
+.r-plan-prices-paid span {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -180,6 +186,7 @@ export default {
   text-align: center;
   color: #666666;
 }
+
 .r-plan-ideal span {
   font-style: normal;
   font-weight: 400;
@@ -227,5 +234,4 @@ export default {
   font-size: 17px;
   line-height: 21px;
   color: #666666;
-}
-</style>
+}</style>
