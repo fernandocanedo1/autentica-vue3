@@ -1,8 +1,17 @@
 <template>
   <div class="container-plan">
+
     <slot name="teste" v-if="mostUsed || planoEscolhido"></slot>
     <div class="r-plan">
+      <div class="change-plan-button" v-if="changePlan">
+        <div class="background-button-top">
 
+        </div>
+        <div class="background-button-bot">
+          <button type="button">Trocar plano</button>
+        </div>
+
+      </div>
       <section class="r-plan-session-one">
         <div class="r-plan-title">{{ title }}</div>
         <div class="r-plan-prices">
@@ -82,6 +91,7 @@
 export default {
   props: {
     planoEscolhido: Boolean,
+    changePlan: Boolean,
     mostUsed: Boolean,
     noButton: Boolean,
     title: String,
@@ -234,4 +244,5 @@ export default {
   font-size: 17px;
   line-height: 21px;
   color: #666666;
-}</style>
+}
+</style>
