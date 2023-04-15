@@ -48,7 +48,7 @@
         <input type="checkbox" >
         <span class="checkmark"></span>
       </label>
-      <button class="login-submit" type="submit">Fazer login</button>
+      <button class="login-submit" type="submit">Criar conta</button>
       </section>
   </div>
 </template>
