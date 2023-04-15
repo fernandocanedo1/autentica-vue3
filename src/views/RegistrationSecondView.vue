@@ -57,7 +57,7 @@ export default {
 <style scoped>
 .r-plan {
   position: relative;
-  height: 1033px;
+  height: 983px;
   overflow: hidden;
 }
 /* .most-used-father {
