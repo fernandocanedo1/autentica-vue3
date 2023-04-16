@@ -3,9 +3,7 @@
     <RegistrationHead :title="'Você está muito próximo de mudar a forma de'" :titleLinkSpan="'hospedar seu site'"
       :titleLink="'#'" />
     <div class="container flex">
-      <RegistrationForm 
-        :dataTitle="data.title" 
-      />
+      <RegistrationForm :dataTitle="data.title" />
       <PlanContainer changePlan planoEscolhido noButton :title="data.title" :price="data.price" :paid="data.paid"
         :rate="data.rate" :ideal="data.ideal" :serverCountry="data.serverCountry" :listServer="data.listServer"
         :appsList="data.appsList" :migration="data.migration" :othersList="data.othersList">
@@ -77,7 +75,7 @@ export default {
 
 .change-plan-button .background-button-bot {
   position: absolute;
-  bottom: 68px;
+  bottom: 65px;
   height: 100px;
   width: 76%;
   margin-left: -10px;
@@ -101,6 +99,7 @@ export default {
   height: 75px;
   margin-left: 15px;
   background-color: white;
- border:1px solid black;
- color: black;
-}</style>
+  border: 1px solid black;
+  color: black;
+}
+</style>

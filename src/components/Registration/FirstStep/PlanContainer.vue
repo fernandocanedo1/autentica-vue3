@@ -8,7 +8,7 @@
 
         </div>
         <div class="background-button-bot">
-          <button type="button">Trocar plano</button>
+          <button type="button" @click="pagePlan">Trocar plano</button>
         </div>
 
       </div>
@@ -128,6 +128,10 @@ export default {
       this.$store.dispatch('submitData', this.data);
       console.log("funcionou")
       this.$router.push('/cadastro');
+      window.scrollTo(0, 0)
+    },
+    pagePlan(){
+      this.$router.push('/plano');
       window.scrollTo(0, 0)
     }
   }
