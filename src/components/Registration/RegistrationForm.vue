@@ -13,28 +13,28 @@
           <span class="r-form-input-span">Nome completo</span>
           <input required class="name-form" type="text" v-model="state.name" placeholder="Informe seu nome completo" />
           <span class="r-form-input-span">Celular</span>
-          <input class="cel-form" type="tel" v-model="state.phone" placeholder="(99) 99999-0000" />
+          <input required class="cel-form" type="tel" v-model="state.phone" placeholder="(99) 99999-0000" />
           <span v-if="v$.phone.$error">
             <div class="r-form-legend">
-              <span>Informe um número de celular válido</span>
+              <span>Informe um número de celular válido(Ex: 64 999999999)</span>
             </div>
           </span>
           <span class="r-form-input-span">E-mail</span>
-          <input class="email-form" type="email" v-model="state.email" placeholder="Informe seu e-mail" />
+          <input required class="email-form" type="email" v-model="state.email" placeholder="Informe seu e-mail" />
           <span v-if="v$.email.$error">
             <div class="r-form-legend">
               <span>Informe um e-mail válido</span>
             </div>
           </span>
           <span class="r-form-input-span">Senha</span>
-          <input type="password" v-model="state.password.password" @blur="v$.password.password.$touch()">
-          <span v-if="v$.password.password.$error">
-            <div class="r-form-legend">
-              <span>No mínimo 8 caracteres</span>
-            </div>
-          </span>
+          <input required type="password" v-model="state.password.password" @blur="v$.password.password.$touch()">
+
+          <div class="r-form-legend">
+            <span>No mínimo 8 caracteres</span>
+          </div>
+
           <span class="r-form-input-span">Confirme sua senha</span>
-          <input type="password" v-model="state.password.password_confirmation" />
+          <input required type="password" v-model="state.password.password_confirmation" />
           <span v-if="v$.password.password_confirmation.$error">
             <div class="r-form-legend">
               <span>As senhas não coincidem</span>
@@ -50,7 +50,7 @@
           <span>Dados do seu site</span>
         </div>
         <span class="r-form-input-span">Nome do seu site</span>
-        <input class="nameSite-form bot-8px" type="text" v-model="state.nameSite" placeholder="Meu site" />
+        <input required class="nameSite-form bot-8px" type="text" v-model="state.nameSite" placeholder="Meu site" />
         <div class="r-form-legend">
           <span>Exatamente igual o título do seu site</span>
         </div>
@@ -62,15 +62,9 @@
         <label class="container-checkbox">
           Ao concluir com seu cadastro você concorda com nossos <span class=text-line>termos de uso</span> e <span
             class=text-line>politicas de privacidade</span>.
-          <input v-model="state.check" type="checkbox">
+          <input required v-model="state.check" type="checkbox">
           <span class="checkmark"></span>
         </label>
-        <span v-if="v$.check.$error">
-          <div class="r-form-legend">
-            <span>Aceite o termo acima</span>
-          </div>
-          <br/>
-        </span>
         <button class="login-submit" type="submit">Criar conta</button>
       </section>
     </form>
@@ -82,6 +76,7 @@ import useValidate from '@vuelidate/core'
 import { required, email, minLength, sameAs } from '@vuelidate/validators'
 import { reactive, computed } from 'vue';
 import { helpers } from 'vuelidate/lib/validators'
+import axios from 'axios'
 export default {
   setup() {
     const state = reactive({
@@ -119,9 +114,7 @@ export default {
           })
         }
       }
-
     })
-
     const v$ = useValidate(rules, state)
     return {
       state,
@@ -132,20 +125,31 @@ export default {
     submitForm() {
       this.v$.$validate()
       if (!this.v$.$error) {
-        alert('form sucess')
+        axios.post('https://fakestoreapi.com/users', {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password.password,
+          password_confirmation: this.state.password.password_confirmation,
+          nameSite: this.state.nameSite
+
+        })
+          .then((response) => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        console.log("Nome" + this.state.name + "Email" + this.state.email + "Password" + this.state.password.password + "Confirmation" + this.state.password.password_confirmation + "NomeSite" + this.state.nameSite)
+
+        this.$store.dispatch('submitName', this.name);
+        this.$router.push('/bem-vindo');
+        window.scrollTo(0, 0)
       } else {
-        alert('form error')
+        alert('Verifique os campos.');
+        window.scrollTo(0, 0)
       }
-      alert(
-        "nome: " + this.state.name
-        +
-        "celular: " + this.state.phone
-        +
-        "password: " + this.state.password.password
-        +
-        "nome: " + this.state.nameSite
-      )
-    }
+    },
+
   }
 
 };

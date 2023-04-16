@@ -11,7 +11,9 @@
     font-family: 'Sora';
     color: #292D32;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     /* position: relative; */
     background: #FAFAFC;

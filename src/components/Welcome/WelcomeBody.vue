@@ -30,7 +30,6 @@ export default {
     line-height: 35px;
     padding-bottom: 15px;
 }
-
 .welcome-text {
     font-style: normal;
     font-weight: 400;
