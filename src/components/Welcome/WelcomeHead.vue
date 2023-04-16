@@ -3,15 +3,26 @@
         <img alt="Locaweb logo" src="../../assets/locaweb1.png" />
     </section>
     <section class="welcome-account">
-        <button class="account-button" type="button">{{ user.charAt(0) }}</button>
+        <button class="account-button" type="button">{{ data.charAt(0) }}</button>
     </section>
 </template>
 
 <script >
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
-  props: {
-    user: String
-}
+    setup() {
+        const store = useStore();
+
+        const data = computed(() => {
+            return store.state.name;
+        });
+
+        return { data };
+    },
+    props: {
+        user: String
+    }
 }
 </script>
 

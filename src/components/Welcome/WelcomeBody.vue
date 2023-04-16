@@ -1,6 +1,6 @@
 <template>
     <div class="welcome-title">
-        <span>Olá {{ user }},</span>
+        <span>Olá {{ data }},</span>
     </div>
     <div class="welcome-text">
         <span>Seja bem vindo a sua conta de hospedagem.</span>
@@ -14,9 +14,23 @@
 </template>
 
 <script >
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
+    setup() {
+        const store = useStore();
+
+        const data = computed(() => {
+            return store.state.name;
+        });
+
+        return { data };
+    },
     props: {
         user: String
+    },
+    mounted() {
+        console.log((this.data))
     }
 }
 </script>
@@ -30,6 +44,7 @@ export default {
     line-height: 35px;
     padding-bottom: 15px;
 }
+
 .welcome-text {
     font-style: normal;
     font-weight: 400;
@@ -37,9 +52,11 @@ export default {
     line-height: 20px;
     padding-bottom: 32px;
 }
-.welcome-image{
+
+.welcome-image {
     padding-bottom: 38px;
 }
+
 .welcome-question {
     font-family: 'Sora';
     font-style: normal;
@@ -47,5 +64,4 @@ export default {
     font-size: 16px;
     line-height: 20px;
     padding-bottom: 49px;
-}
-</style>
+}</style>

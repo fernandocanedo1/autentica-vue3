@@ -3,7 +3,9 @@
     <RegistrationHead :title="'Você está muito próximo de mudar a forma de'" :titleLinkSpan="'hospedar seu site'"
       :titleLink="'#'" />
     <div class="container flex">
-      <RegistrationForm />
+      <RegistrationForm 
+        :dataTitle="data.title" 
+      />
       <PlanContainer changePlan planoEscolhido noButton :title="data.title" :price="data.price" :paid="data.paid"
         :rate="data.rate" :ideal="data.ideal" :serverCountry="data.serverCountry" :listServer="data.listServer"
         :appsList="data.appsList" :migration="data.migration" :othersList="data.othersList">
@@ -35,6 +37,7 @@ export default {
     return { data };
   },
   mounted() {
+    console.log((this.data.title))
     const planContainer = document.querySelector('.r-plan');
     planContainer.style.height = '983px';
   },

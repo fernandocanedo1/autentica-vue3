@@ -78,6 +78,9 @@ import { reactive, computed } from 'vue';
 import { helpers } from 'vuelidate/lib/validators'
 import axios from 'axios'
 export default {
+  props: {
+    dataTitle: String,
+  },
   setup() {
     const state = reactive({
       name: '',
@@ -130,7 +133,8 @@ export default {
           email: this.state.email,
           password: this.state.password.password,
           password_confirmation: this.state.password.password_confirmation,
-          nameSite: this.state.nameSite
+          nameSite: this.state.nameSite,
+          plan: this.dataTitle
 
         })
           .then((response) => {
@@ -139,9 +143,9 @@ export default {
           .catch((error) => {
             console.error(error);
           });
-        console.log("Nome" + this.state.name + "Email" + this.state.email + "Password" + this.state.password.password + "Confirmation" + this.state.password.password_confirmation + "NomeSite" + this.state.nameSite)
+        console.log("Plano: "+this.dataTitle+"Nome" + this.state.name + "Email" + this.state.email + "Password" + this.state.password.password + "Confirmation" + this.state.password.password_confirmation + "NomeSite" + this.state.nameSite)
 
-        this.$store.dispatch('submitName', this.name);
+        this.$store.dispatch('submitName', this.state.name);
         this.$router.push('/bem-vindo');
         window.scrollTo(0, 0)
       } else {
