@@ -3,8 +3,7 @@
     <section class="r-first-head flex-column center">
       <RegistrationHead
         :title="'Você está muito próximo de mudar a forma de'"
-        :titleLinkSpan="'hospedar seu site'"
-        :titleLink="'#'"
+        :titleDecorationUnderline="'hospedar seu site'"
         :subtitle="'Escolha o seu plano'"
       />
     </section>
@@ -34,7 +33,7 @@
           'Transferência ilimitada.',
         ]"
       >
-        <template v-slot:teste>
+        <template v-slot:marking>
           <div class="most-used-father">
             <div class="most-used">Mais Usado</div>
           </div>
@@ -68,7 +67,7 @@
           'Transferência ilimitada.',
         ]"
       >
-        <template v-slot:teste>
+        <template v-slot:marking>
           <div class="most-used-father">
             <div class="most-used">Mais Usado</div>
           </div>
@@ -101,7 +100,7 @@
           'Transferência ilimitada.',
         ]"
       >
-        <template v-slot:teste>
+        <template v-slot:marking>
           <div class="most-used-father">
             <div class="most-used">Mais Usado</div>
           </div>
@@ -117,19 +116,19 @@ import PlanContainer from "@/components/Registration/FirstStep/PlanContainer.vue
 export default {
   components: { RegistrationHead, PlanContainer },
   mounted() {
-    const planContainer = document.querySelector('.r-plan');
-    planContainer.style.height = 'auto !important';
+    const planContainer = document.querySelector(".r-plan");
+    planContainer.style.height = "auto !important";
   },
   updated() {
-    const planContainer = document.querySelector('.r-plan');
-    planContainer.style.height = 'auto !important';
+    const planContainer = document.querySelector(".r-plan");
+    planContainer.style.height = "auto !important";
   },
 };
 </script>
 
 <style>
 .r-plan {
-  height: auto  ;
+  height: auto;
   overflow: hidden;
 }
 .r-first {
@@ -138,24 +137,18 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.registration-logo {
-  padding-top: 60px;
-  padding-bottom: 43px;
-  width: 176px;
-  height: 67px;
-}
 .most-used-father {
   position: relative;
 }
 
-.most-used{
-  position:absolute;
+.most-used {
+  position: absolute;
   left: 120px;
   top: 20px;
-  padding:8px 20px 7px 20px ;
+  padding: 8px 20px 7px 20px;
   text-transform: uppercase;
-  background: #10C300;
-  color:white;
+  background: #10c300;
+  color: white;
   border-radius: 10px;
 
   font-weight: 400;

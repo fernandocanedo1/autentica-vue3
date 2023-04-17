@@ -1,16 +1,14 @@
 <template>
   <div class="container-plan">
-
-    <slot name="teste" v-if="mostUsed || planoEscolhido"></slot>
+    <slot name="marking" v-if="mostUsed || planoEscolhido"></slot>
     <div class="r-plan">
       <div class="change-plan-button" v-if="changePlan">
-        <div class="background-button-top">
-
-        </div>
+        <div class="background-button-top"></div>
         <div class="background-button-bot">
-          <button type="button" @click="pagePlan">Trocar plano</button>
+          <a href="/plano">
+            <button type="button">Trocar plano</button>
+          </a>
         </div>
-
       </div>
       <section class="r-plan-session-one">
         <div class="r-plan-title">{{ title }}</div>
@@ -33,12 +31,15 @@
         </div>
         <hr class="divider" />
         <form @submit.prevent="handleSubmit">
-          <button class="r-plan-submit" type="submit" v-if="!noButton">Escolher esse plano</button>
+          <button class="r-plan-submit" type="submit" v-if="!noButton">
+            Escolher esse plano
+          </button>
         </form>
       </section>
       <section class="r-plan-session-two">
         <div class="r-plan-list-title">
-          <span>Seu site em servidores
+          <span
+            >Seu site em servidores
             <span class="text-line">no {{ serverCountry }}.</span>
           </span>
         </div>
@@ -125,128 +126,15 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$store.dispatch('submitData', this.data);
-      console.log("funcionou")
-      this.$router.push('/cadastro');
-      window.scrollTo(0, 0)
+      this.$store.dispatch("submitData", this.data);
+      console.log("funcionou");
+      this.$router.push("/cadastro");
+      window.scrollTo(0, 0);
     },
-    pagePlan(){
-      this.$router.push('/plano');
-      window.scrollTo(0, 0)
-    }
-  }
+  },
 };
 </script>
 
 <style>
-.r-plan {
-  padding: 40px 43px 40px 43px;
-  margin-top: 35px;
-  width: 268px;
-  background: #ffffff;
-  border-radius: 5px;
-  margin-right: 12.5px;
-  margin-left: 12.5px;
-  margin-bottom: 66px;
-}
-
-.r-plan-session-one {
-  text-align: center;
-}
-
-.r-plan-title {
-  padding-bottom: 21px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 33px;
-  /* identical to box height */
-
-  color: #666666;
-}
-
-.real {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 25px;
-  color: var(--primary-color);
-}
-
-.r-plan-prices-price {
-  padding-bottom: 13px;
-}
-
-.r-plan-prices-price .price {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 43px;
-  color: var(--primary-color);
-}
-
-.r-plan-prices-paid {
-  padding-bottom: 10px;
-}
-
-.r-plan-prices-rate span,
-.r-plan-prices-paid span {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-
-  /* identical to box height */
-  text-align: center;
-  color: #666666;
-}
-
-.r-plan-ideal span {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 21px;
-  text-align: center;
-  color: #666666;
-}
-
-.r-plan-submit {
-  margin: auto;
-  margin-bottom: 15px;
-}
-
-.r-plan-list-title {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.r-plan-list-title span {
-  font-family: "Sora";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 21px;
-
-  color: #666666;
-}
-
-.verificado-icon {
-  width: 12px;
-}
-
-.r-plan-list-items img {
-  padding-right: 11px;
-}
-
-.r-plan-list-items {
-  display: flex;
-}
-
-.r-plan-list-items span {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 21px;
-  color: #666666;
-}
+@import "PlanContainer.css";
 </style>

@@ -8,7 +8,7 @@
     <span>
       {{ title }}
       <br />
-      <a :href="titleLink">{{ titleLinkSpan }}</a>
+      <span class="line">{{ titleDecorationUnderline }}</span>
     </span>
   </div>
   <div class="r-subtitle" v-if="subtitle">
@@ -21,13 +21,13 @@ export default {
   name: "RegistrationHead",
   props: {
     title: String,
-    titleLinkSpan: String,
-    titleLink: String,
+    titleDecorationUnderline: String,
     subtitle: String,
   },
 };
 </script>
 <style>
+
 .r-title {
   font-style: normal;
   font-weight: 700;
@@ -38,7 +38,15 @@ export default {
   padding-bottom: 22px;
 }
 
-.r-title a {
+.r-title .line {
   color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.registration-logo {
+  padding-top: 60px;
+  padding-bottom: 43px;
+  width: 176px;
+  height: 67px;
 }
 </style>

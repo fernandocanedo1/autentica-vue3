@@ -1,13 +1,29 @@
 <template>
   <section class="r-first">
-    <RegistrationHead :title="'Você está muito próximo de mudar a forma de'" :titleLinkSpan="'hospedar seu site'"
-      :titleLink="'#'" />
+    <div class="r-first-head flex-column center">
+      <RegistrationHead
+        :title="'Você está muito próximo de mudar a forma de'"
+        :titleDecorationUnderline="'hospedar seu site'"
+      />
+    </div>
     <div class="container flex">
       <RegistrationForm :dataTitle="data.title" />
-      <PlanContainer changePlan planoEscolhido noButton :title="data.title" :price="data.price" :paid="data.paid"
-        :rate="data.rate" :ideal="data.ideal" :serverCountry="data.serverCountry" :listServer="data.listServer"
-        :appsList="data.appsList" :migration="data.migration" :othersList="data.othersList">
-        <template v-slot:teste>
+      <PlanContainer
+        changePlan
+        planoEscolhido
+        noButton
+        :title="data.title"
+        :price="data.price"
+        :paid="data.paid"
+        :rate="data.rate"
+        :ideal="data.ideal"
+        :serverCountry="data.serverCountry"
+        :listServer="data.listServer"
+        :appsList="data.appsList"
+        :migration="data.migration"
+        :othersList="data.othersList"
+      >
+        <template v-slot:marking>
           <div class="most-used-father">
             <div class="plano-escolhido">Plano escolhido</div>
           </div>
@@ -35,9 +51,9 @@ export default {
     return { data };
   },
   mounted() {
-    console.log((this.data.title))
-    const planContainer = document.querySelector('.r-plan');
-    planContainer.style.height = '983px';
+    console.log(this.data.title);
+    const planContainer = document.querySelector(".r-plan");
+    planContainer.style.height = "983px";
   },
 };
 </script>
@@ -48,11 +64,6 @@ export default {
   overflow: hidden;
 }
 
-/* .most-used-father {
-  position: absolute;
-  left: 40px;
-  top: 50px;
-} */
 .plano-escolhido {
   position: absolute;
   left: 100px;
@@ -88,7 +99,11 @@ export default {
   height: 100px;
   width: 76%;
   margin-left: -10px;
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
