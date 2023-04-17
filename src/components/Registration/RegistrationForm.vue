@@ -21,6 +21,8 @@
           <span class="r-form-input-span">Celular</span>
           <input
             required
+            v-maska
+            data-maska="(##) #####-####"
             class="cel-form"
             type="tel"
             v-model="state.phone"
@@ -39,11 +41,7 @@
             v-model="state.email"
             placeholder="Informe seu e-mail"
           />
-          <span v-if="v$.email.$error">
-            <div class="r-form-legend">
-              <span>Informe um e-mail válido</span>
-            </div>
-          </span>
+
           <span class="r-form-input-span">Senha</span>
           <input
             required
@@ -107,10 +105,13 @@
 
 <script>
 import useValidate from "@vuelidate/core";
-import { required, email, minLength, sameAs } from "@vuelidate/validators";
+import { required, minLength, sameAs } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 import { helpers } from "vuelidate/lib/validators";
 import axios from "axios";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+
 export default {
   props: {
     dataTitle: String,
@@ -118,8 +119,8 @@ export default {
   setup() {
     const state = reactive({
       name: "",
-      phone: "",
       email: "",
+      phone: "",
       password: {
         password: "",
         password_confirmation: "",
@@ -133,7 +134,6 @@ export default {
         phone: {
           regex: helpers.regex("serial", /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/),
         },
-        email: { required, email },
         password: {
           password: { required, minLength: minLength(8) },
           password_confirmation: {
@@ -191,12 +191,16 @@ export default {
             "NomeSite" +
             this.state.nameSite
         );
-
+        toast.success("Cadastrado com sucesso!", {
+          autoClose: 5000,
+        });
         this.$store.dispatch("submitName", this.state.name);
         this.$router.push("/bem-vindo");
         window.scrollTo(0, 0);
       } else {
-        alert("Verifique os campos.");
+        toast.warning("Verifique os campos.", {
+          autoClose: 5000,
+        });
         window.scrollTo(0, 0);
       }
     },
