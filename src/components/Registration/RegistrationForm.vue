@@ -195,6 +195,7 @@ export default {
           autoClose: 5000,
         });
         this.$store.dispatch("submitName", this.state.name);
+        this.$store.dispatch('submitLogin', { email: this.state.email, password: this.state.password.password})
         this.$router.push("/bem-vindo");
         window.scrollTo(0, 0);
       } else {

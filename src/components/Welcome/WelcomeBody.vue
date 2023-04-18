@@ -1,6 +1,6 @@
 <template>
     <div class="welcome-title">
-        <span>Olá {{ data }},</span>
+        <span>Olá {{ user }},</span>
     </div>
     <div class="welcome-text">
         <span>Seja bem vindo a sua conta de hospedagem.</span>
@@ -14,24 +14,10 @@
 </template>
 
 <script >
-import { useStore } from "vuex";
-import { computed } from "vue";
 export default {
-    setup() {
-        const store = useStore();
-
-        const data = computed(() => {
-            return store.state.name;
-        });
-
-        return { data };
-    },
     props: {
         user: String
     },
-    mounted() {
-        console.log((this.data))
-    }
 }
 </script>
 

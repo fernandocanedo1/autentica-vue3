@@ -4,29 +4,18 @@
   </section>
   <div class="welcome-account" >
       <button class="account-button" type="button" @click="toggleContainer">
-        {{ data.charAt(0) }}
+        {{ user.charAt(0) }}
       </button>
   </div>
   <section class="welcome-container" v-show="showContainer">
     <div class="welcome-container-bottom flex">
-      <a href="/">Sair</a>
+      <a @click="changeLoggout">Sair</a>
     </div>
   </section>
 </template>
 
 <script >
-import { useStore } from "vuex";
-import { computed } from "vue";
 export default {
-  setup() {
-    const store = useStore();
-
-    const data = computed(() => {
-      return store.state.name;
-    });
-
-    return { data };
-  },
 data() {
     return {
       showContainer: false
@@ -38,6 +27,11 @@ data() {
   methods:{
     toggleContainer() {
       this.showContainer = !this.showContainer;
+    },
+    changeLoggout(){
+      this.$store.dispatch('submitLogin', { email: '', password: ''})
+      location.reload();
+      console.log("change")
     }
   }
 };
