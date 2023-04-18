@@ -12,5 +12,5 @@ yarn serve
 
 ### Link deploy
 ```
-[LINK](https://autentica-vue3.vercel.app/)
+<https://autentica-vue3.vercel.app/>
 
