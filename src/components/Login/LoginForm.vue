@@ -22,15 +22,17 @@
 import { useStore } from "vuex";
 import { computed } from "vue";
 import axios from "axios";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 export default {
   setup() {
-        const store = useStore();
+    const store = useStore();
 
-        const data = computed(() => {
-            return store.state
-        });
+    const data = computed(() => {
+      return store.state
+    });
 
-        return { data };
+    return { data };
   },
   data() {
     return {
@@ -40,26 +42,30 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if(this.email==this.data.email && this.password==this.data.password){
+      if (this.email == this.data.email && this.password == this.data.password) {
         this.$router.push("/bem-vindo");
       }
-      else{
+      else {
         axios
-        .post("https://fakestoreapi.com/auth/login", {
-          username: "johnd",
-          password: "m38rmF$"
-        })
-        .then((response) => {
-          console.log(response.data);
-          this.$store.dispatch('submitLogin', { email: "joao@joao", password: "joaopassword"})
-          this.$store.dispatch("submitName", "João");
-          this.$router.push("/bem-vindo");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+          .post("https://fakestoreapi.com/auth/login", {
+            username: "johnd",
+            password: "m38rmF$"
+          })
+          .then((response) => {
+            console.log(response.data);
+            this.$store.dispatch('submitLogin', { email: "joao@joao", password: "joaopassword" })
+            this.$store.dispatch("submitName", "João");
+            this.$router.push("/bem-vindo");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
+      toast.success("Logado com sucesso.", {
+        autoClose: 5000,
+      })
     },
+
   },
 };
 </script>
