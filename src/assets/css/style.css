@@ -11,9 +11,11 @@
     font-family: 'Sora';
     color: #292D32;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     /* position: relative; */
     background: #FAFAFC;
@@ -26,7 +28,8 @@ body {
     align-items: center;
     /* height: 100vh; */
 }
-img{
+
+img {
     max-width: 100%;
 }
 
@@ -224,11 +227,99 @@ a:hover {
     transform: rotate(45deg);
 
 }
-.r-first-containers{
+
+.r-first-containers {
     flex-wrap: wrap;
     justify-content: center;
 }
-.container{
-   flex-wrap: wrap;
-   justify-content: center;
- }
+
+.container {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.r-first-head {
+    margin-right: 16px;
+    margin-left: 16px;
+}
+/*Celular*/
+@media(max-width:500px) {
+    .container {
+        flex-wrap: wrap-reverse !important;
+        padding-bottom:23px;
+    }
+
+    button {
+        height: 60px !important;
+    }
+
+    .r-plan {
+        height: 329px !important;
+        margin-bottom: 36px !important;
+    }
+
+    .change-plan-button .background-button-top {
+        height: 30px !important;
+        background: transparent !important;
+    }
+    .change-plan-button .background-button-bot {
+        bottom: 35px !important;
+      }
+
+    .remove-mobile {
+        border: 1px solid white;
+    }
+
+    .r-form section {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .r-form {
+        margin-top: 0px !important;
+        margin-right: 14px;
+        margin-left: 14px;
+    }
+
+    .r-form-data {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .r-form hr {
+        width: 90% !important;
+    }
+
+    .login-form {
+        margin: 0px 14px 0px 14px
+    }
+
+    .welcome-body {
+        margin: 0px 14px 0px 14px
+    }
+
+    .welcome-logo {
+        left: 14px !important
+    }
+
+    .welcome-head button {
+        height: 52px !important;
+    }
+
+    .welcome-account {
+        margin-right: 24px !important;
+        padding-top: 24px !important;
+    }
+
+    .welcome-container {
+        margin-top: 14px !important;
+        margin-right: 14px !important;
+    }
+
+    .change-plan-button button {
+        margin-left: 17px !important;
+    }
+
+}

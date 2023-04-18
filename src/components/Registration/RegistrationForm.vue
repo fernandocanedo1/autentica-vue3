@@ -70,14 +70,14 @@
       <div class="r-form-divider bot-5px">
         <hr class="divider" />
       </div>
-      <section class="r-form-site">
-        <div class="r-form-data-title bot-15px">
+      <section class="r-form-site flex-column left">
+        <div class="r-form-data-title bot-5px">
           <span>Dados do seu site</span>
         </div>
         <span class="r-form-input-span">Nome do seu site</span>
         <input
           required
-          class="nameSite-form bot-8px"
+          class="nameSite-form"
           type="text"
           v-model="state.nameSite"
           placeholder="Meu site"

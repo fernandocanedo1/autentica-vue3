@@ -29,7 +29,7 @@
         <div class="r-plan-ideal">
           <span>{{ ideal }}</span>
         </div>
-        <hr class="divider" />
+        <hr class="divider remove-mobile" />
         <form @submit.prevent="handleSubmit">
           <button class="r-plan-submit" type="submit" v-if="!noButton">
             Escolher esse plano
